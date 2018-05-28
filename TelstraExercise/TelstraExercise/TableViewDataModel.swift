@@ -10,19 +10,20 @@ import UIKit
 
 protocol DataModelDelegate: class {
     
-    func  didReciveDataUpdate()
+    func  didReciveDataUpdate(parsedData:Country)
     func  didFaileWithError(error:Error)
 }
 class TableViewDataModel: NSObject {
 
-    
+    weak var delegate: DataModelDelegate?
+
     // MARK: API call
-    
     func requestData() {
         
-        //API call
+        //Setting up the url
         guard let url = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") else {return}
         
+        //NSURLSession 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error)
             in
             guard let data = data else {
@@ -30,15 +31,21 @@ class TableViewDataModel: NSObject {
                 return
             }
             
-            guard let jsonResponse = try? JSONDecoder().decode(movie.self, from: data) else {
+            //Parsing data to model(TableViewModelItem)
+            guard let jsonResponse = try? JSONDecoder().decode(Country.self, from: data) else {
                 print("Error: Couldn't decode data into Blog")
                 return
             }
-            print(jsonResponse.movie_char!)
             self.updateResponse(response: jsonResponse)
         }
         
         task.resume()
+    }
+    
+    // MARK: delegate method
+    func updateResponse(response:Country){
+        delegate?.didReciveDataUpdate(parsedData: response)
+        
     }
     
 }
