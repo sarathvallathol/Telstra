@@ -9,17 +9,34 @@
 import UIKit
 
 class MainViewController: UIViewController {
+ 
+    private var dataArray:Country?
+    private let dataSource = TableViewDataModel()
 
+
+    var tableView:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Frame for tableView
+        let frame = self.view.frame
+        tableView = UITableView(frame: frame)
+        //Adding tableView to the View
+        self.view.addSubview(tableView!)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+          dataSource.requestData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*
@@ -32,4 +49,15 @@ class MainViewController: UIViewController {
     }
     */
 
+}
+extension MainViewController: DataModelDelegate {
+    
+    func didFailDataUpdateWithError(error: Error) {
+        print("error: \(error.localizedDescription)")
+    }
+    
+    func didRecieveDataUpdate(parsedData:Country) {
+        dataArray = parsedData
+        print(dataArray!)
+    }
 }

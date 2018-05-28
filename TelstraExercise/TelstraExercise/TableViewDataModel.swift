@@ -10,42 +10,58 @@ import UIKit
 
 protocol DataModelDelegate: class {
     
-    func  didReciveDataUpdate(parsedData:Country)
-    func  didFaileWithError(error:Error)
+    func  didRecieveDataUpdate(parsedData:Country)
+    func  didFailDataUpdateWithError(error: Error)
 }
+
+
+struct Country: Decodable {
+    let title : String
+    let rows: [Rows]?
+   
+}
+struct Rows:Decodable {
+    
+    let title:String?
+    let description:String?
+    let imageHref:String?
+    
+    
+}
+
 class TableViewDataModel: NSObject {
 
+    let defaultSession = URLSession(configuration: .default)
+    var dataTask: URLSessionDataTask?
+    
     weak var delegate: DataModelDelegate?
 
     // MARK: API call
     func requestData() {
         
         //Setting up the url
-        guard let url = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") else {return}
+        guard let url = URL(string:"https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") else {return}
         
         //NSURLSession 
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error)
-            in
-            guard let data = data else {
-                print(error!)
-                return
-            }
+        dataTask = defaultSession.dataTask(with: url) { data, response, error in
+            defer { self.dataTask = nil }
+            
+            guard let data = data else {return}
             
             //Parsing data to model(TableViewModelItem)
-            guard let jsonResponse = try? JSONDecoder().decode(Country.self, from: data) else {
-                print("Error: Couldn't decode data into Blog")
-                return
-            }
-            self.updateResponse(response: jsonResponse)
+            do {
+            let gitData = try JSONDecoder().decode(Country.self, from: data)
+                print(gitData.title)
+        } catch let error {
+            print("Error", error)
         }
-        
-        task.resume()
     }
-    
+        self.dataTask?.resume()
+}
     // MARK: delegate method
     func updateResponse(response:Country){
-        delegate?.didReciveDataUpdate(parsedData: response)
+        delegate?.didRecieveDataUpdate(parsedData: response)
         
     }
-    
+
 }

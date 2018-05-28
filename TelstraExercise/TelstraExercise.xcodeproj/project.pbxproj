@@ -14,6 +14,7 @@
 		FD4340CF20BC1CD300CED8B7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */; };
 		FD4340D120BC1D8100CED8B7 /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */; };
 		FD4340D320BC1DC200CED8B7 /* TableViewDataModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */; };
+		FD79F96620BC497000C1D5C5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79F96520BC497000C1D5C5 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
 		FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModelItem.swift; sourceTree = "<group>"; };
+		FD79F96520BC497000C1D5C5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				FD4340B320BC121A00CED8B7 /* Assets.xcassets */,
 				FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */,
 				FD4340B820BC121A00CED8B7 /* Info.plist */,
+				FD79F96520BC497000C1D5C5 /* TableViewCell.swift */,
 			);
 			path = TelstraExercise;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD79F96620BC497000C1D5C5 /* TableViewCell.swift in Sources */,
 				FD4340D320BC1DC200CED8B7 /* TableViewDataModelItem.swift in Sources */,
 				FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */,
 				FD4340D120BC1D8100CED8B7 /* TableViewDataModel.swift in Sources */,
