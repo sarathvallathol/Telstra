@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */; };
-		FD4340B220BC121A00CED8B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B020BC121A00CED8B7 /* Main.storyboard */; };
 		FD4340B420BC121A00CED8B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B320BC121A00CED8B7 /* Assets.xcassets */; };
 		FD4340B720BC121A00CED8B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */; };
 		FD4340C220BC121A00CED8B7 /* TelstraExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340C120BC121A00CED8B7 /* TelstraExerciseTests.swift */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		FD4340A920BC121A00CED8B7 /* TelstraExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelstraExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD4340B120BC121A00CED8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD4340B320BC121A00CED8B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD4340B620BC121A00CED8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD4340B820BC121A00CED8B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */,
 				FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */,
 				FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */,
-				FD4340B020BC121A00CED8B7 /* Main.storyboard */,
 				FD4340B320BC121A00CED8B7 /* Assets.xcassets */,
 				FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */,
 				FD4340B820BC121A00CED8B7 /* Info.plist */,
@@ -187,7 +184,6 @@
 			files = (
 				FD4340B720BC121A00CED8B7 /* LaunchScreen.storyboard in Resources */,
 				FD4340B420BC121A00CED8B7 /* Assets.xcassets in Resources */,
-				FD4340B220BC121A00CED8B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,14 +227,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FD4340B020BC121A00CED8B7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD4340B120BC121A00CED8B7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
