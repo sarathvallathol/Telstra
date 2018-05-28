@@ -23,7 +23,8 @@ class MainViewController: UIViewController {
         tableView = UITableView(frame: frame)
         //Adding tableView to the View
         self.view.addSubview(tableView!)
-
+        self.tableView?.rowHeight = UITableViewAutomaticDimension
+        self.tableView?.estimatedRowHeight = 200
         // Do any additional setup after loading the view.
     }
     

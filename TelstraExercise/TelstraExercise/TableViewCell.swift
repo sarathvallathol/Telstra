@@ -18,6 +18,7 @@ class TableViewCell: UITableViewCell {
         
         var textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isScrollEnabled = false
         return textView
     }()
     
@@ -39,7 +40,40 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+   
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.addSubview(mainImageView)
+        self.addSubview(titleView)
+        self.addSubview(messageView)
+        
+        mainImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        mainImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive  = true
+        mainImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        mainImageView.widthAnchor.constraint(equalToConstant: 100).isActive  = true
+        mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+        titleView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        titleView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        titleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if let title = title{
+            titleView.text = title
+        }
+        if let image = mainImage {
+            mainImageView.image = image
+        }
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

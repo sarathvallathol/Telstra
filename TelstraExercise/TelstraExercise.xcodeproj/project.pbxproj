@@ -85,10 +85,10 @@
 				FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */,
 				FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */,
 				FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */,
+				FD79F96520BC497000C1D5C5 /* TableViewCell.swift */,
 				FD4340B320BC121A00CED8B7 /* Assets.xcassets */,
 				FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */,
 				FD4340B820BC121A00CED8B7 /* Info.plist */,
-				FD79F96520BC497000C1D5C5 /* TableViewCell.swift */,
 			);
 			path = TelstraExercise;
 			sourceTree = "<group>";
