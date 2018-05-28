@@ -48,9 +48,14 @@ class TableViewDataModel: NSObject {
             
             guard let data = data else {return}
             
+            let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
+            guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8) else {
+                print("could not convert data to UTF-8 format")
+                return
+            }
             //Parsing data to model(TableViewModelItem)
             do {
-            let gitData = try JSONDecoder().decode(Country.self, from: data)
+            let gitData = try JSONDecoder().decode(Country.self, from: modifiedDataInUTF8Format)
                 print(gitData.title)
         } catch let error {
             print("Error", error)
