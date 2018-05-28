@@ -16,11 +16,11 @@ struct Country: Decodable {
 struct Rows:Decodable {
     let subTitle:String?
     let description:String?
-    let image:String?
+    let imageUrl:String?
     
     enum codingKeys: String,CodingKey {
         case subTitle    = "title"
         case description = "description"
-        case image       = "imageHref"
+        case imageUrl    = "imageHref"
     }
 }
