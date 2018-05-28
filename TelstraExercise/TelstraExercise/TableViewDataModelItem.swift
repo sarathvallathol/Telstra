@@ -9,9 +9,9 @@
 import Foundation
 
 
-/*struct Country: Decodable {
+struct Country: Decodable {
     let title : String?
-  //  let rows: [Rows]?
+    let rows: [Rows]?
 }
 struct Rows:Decodable {
     let subTitle:String?
@@ -23,4 +23,4 @@ struct Rows:Decodable {
         case description = "description"
         case imageUrl    = "imageHref"
     }
-}*/
+}

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController,DataModelDelegate {
+    
  
     private var dataArray:Country?
     private let dataSource = TableViewDataModel()
@@ -30,7 +31,8 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-          dataSource.requestData()
+        dataSource.delegate = self
+        dataSource.requestData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +40,16 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: Delegate methods
+    func didRecieveDataUpdate(parsedData: Country) {
+        
+        dataArray = parsedData
+    }
+    
+    func didFailDataUpdateWithError(error: Error) {
+        print("error: \(error.localizedDescription)")
+        
+    }
     
 
     /*
@@ -51,14 +63,4 @@ class MainViewController: UIViewController {
     */
 
 }
-extension MainViewController: DataModelDelegate {
-    
-    func didFailDataUpdateWithError(error: Error) {
-        print("error: \(error.localizedDescription)")
-    }
-    
-    func didRecieveDataUpdate(parsedData:Country) {
-        dataArray = parsedData
-        print(dataArray!)
-    }
-}
+

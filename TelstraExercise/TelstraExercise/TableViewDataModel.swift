@@ -15,7 +15,7 @@ protocol DataModelDelegate: class {
 }
 
 
-struct Country: Decodable {
+/*struct Country: Decodable {
     let title : String
     let rows: [Rows]?
    
@@ -28,12 +28,13 @@ struct Rows:Decodable {
     
     
 }
-
+*/
 class TableViewDataModel: NSObject {
 
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     
+    let country = [Country]()
     weak var delegate: DataModelDelegate?
 
     // MARK: API call
@@ -45,7 +46,6 @@ class TableViewDataModel: NSObject {
         //NSURLSession 
         dataTask = defaultSession.dataTask(with: url) { data, response, error in
             defer { self.dataTask = nil }
-            
             guard let data = data else {return}
             
             let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
@@ -55,8 +55,10 @@ class TableViewDataModel: NSObject {
             }
             //Parsing data to model(TableViewModelItem)
             do {
-            let gitData = try JSONDecoder().decode(Country.self, from: modifiedDataInUTF8Format)
-                print(gitData.title)
+                
+                let country = try JSONDecoder().decode(Country.self, from: modifiedDataInUTF8Format)
+                self.delegate?.didRecieveDataUpdate(parsedData: country)
+
         } catch let error {
             print("Error", error)
         }
@@ -64,8 +66,8 @@ class TableViewDataModel: NSObject {
         self.dataTask?.resume()
 }
     // MARK: delegate method
-    func updateResponse(response:Country){
-        delegate?.didRecieveDataUpdate(parsedData: response)
+    func updateResponse(response:AnyObject){
+        
         
     }
 
