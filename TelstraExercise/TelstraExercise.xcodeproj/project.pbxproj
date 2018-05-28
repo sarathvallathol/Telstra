@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */; };
-		FD4340AF20BC121A00CED8B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340AE20BC121A00CED8B7 /* ViewController.swift */; };
 		FD4340B220BC121A00CED8B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B020BC121A00CED8B7 /* Main.storyboard */; };
 		FD4340B420BC121A00CED8B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B320BC121A00CED8B7 /* Assets.xcassets */; };
 		FD4340B720BC121A00CED8B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */; };
 		FD4340C220BC121A00CED8B7 /* TelstraExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340C120BC121A00CED8B7 /* TelstraExerciseTests.swift */; };
+		FD4340CF20BC1CD300CED8B7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */; };
+		FD4340D120BC1D8100CED8B7 /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */; };
+		FD4340D320BC1DC200CED8B7 /* TableViewDataModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,6 @@
 /* Begin PBXFileReference section */
 		FD4340A920BC121A00CED8B7 /* TelstraExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelstraExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD4340AE20BC121A00CED8B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD4340B120BC121A00CED8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD4340B320BC121A00CED8B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD4340B620BC121A00CED8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +37,9 @@
 		FD4340BD20BC121A00CED8B7 /* TelstraExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelstraExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4340C120BC121A00CED8B7 /* TelstraExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelstraExerciseTests.swift; sourceTree = "<group>"; };
 		FD4340C320BC121A00CED8B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
+		FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModelItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */,
-				FD4340AE20BC121A00CED8B7 /* ViewController.swift */,
+				FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */,
+				FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */,
+				FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */,
 				FD4340B020BC121A00CED8B7 /* Main.storyboard */,
 				FD4340B320BC121A00CED8B7 /* Assets.xcassets */,
 				FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */,
@@ -199,8 +205,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4340AF20BC121A00CED8B7 /* ViewController.swift in Sources */,
+				FD4340D320BC1DC200CED8B7 /* TableViewDataModelItem.swift in Sources */,
 				FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */,
+				FD4340D120BC1D8100CED8B7 /* TableViewDataModel.swift in Sources */,
+				FD4340CF20BC1CD300CED8B7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +364,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72UCH54KZS;
 				INFOPLIST_FILE = TelstraExercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sarath.TelstraExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -371,6 +380,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72UCH54KZS;
 				INFOPLIST_FILE = TelstraExercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sarath.TelstraExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
