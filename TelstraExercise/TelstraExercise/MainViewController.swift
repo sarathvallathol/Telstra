@@ -11,14 +11,14 @@ import UIKit
 class MainViewController: UIViewController,DataModelDelegate {
     
  
-    private var dataArray:Country?
+    var dataArray:Country?
     private let dataSource = TableViewDataModel()
-
 
     var tableView:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Do any additional setup after loading the view.
+
         //Frame for tableView
         let frame = self.view.frame
         tableView = UITableView(frame: frame)
@@ -26,7 +26,10 @@ class MainViewController: UIViewController,DataModelDelegate {
         self.view.addSubview(tableView!)
         self.tableView?.rowHeight = UITableViewAutomaticDimension
         self.tableView?.estimatedRowHeight = 200
-        // Do any additional setup after loading the view.
+        
+        
+        tableView?.delegate = self
+        tableView?.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +47,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     func didRecieveDataUpdate(parsedData: Country) {
         
         dataArray = parsedData
+        tableView?.reloadData()
     }
     
     func didFailDataUpdateWithError(error: Error) {
@@ -63,4 +67,27 @@ class MainViewController: UIViewController,DataModelDelegate {
     */
 
 }
+extension MainViewController: UITableViewDelegate {
+    
+}
+extension MainViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell {
+            
+            
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+
+    
+    
+}
+
 
