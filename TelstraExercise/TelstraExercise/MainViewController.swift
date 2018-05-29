@@ -100,14 +100,14 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell {
+        let cell = self.tableView?.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
             
+            cell.title = dataArray?.rows![indexPath.row].subTitle
+            //cell.mainImage = dataArray?.rows![indexPath.row].imageUrl
+            cell.detailedDescription = dataArray?.rows![indexPath.row].description
             
             return cell
-        }
-        return UITableViewCell()
-    }
-    
+  }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
       

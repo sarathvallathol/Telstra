@@ -19,6 +19,7 @@ class TableViewCell: UITableViewCell {
         var textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isScrollEnabled = false
+        textView.isUserInteractionEnabled = false
         return textView
     }()
     
