@@ -11,31 +11,55 @@ import UIKit
 class MainViewController: UIViewController,DataModelDelegate {
     
  
-    var dataArray:Country?
+    var dataArray:Country?{
+        
+        didSet{
+           
+            
+            DispatchQueue.main.async {
+                
+                self.navigationItem.title = (self.dataArray?.title)!
+                self.tableView?.delegate = self
+                self.tableView?.dataSource = self
+                self.tableView?.reloadData()
+            }
+        }
+    }
     private let dataSource = TableViewDataModel()
 
     var tableView:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-        //Frame for tableView
+        
+        dataSource.delegate = self
+        dataSource.requestData()
+        
+        tableViewSetup()
+       
+    }
+    
+    func tableViewSetup(){
+        
+        
+        // NOTE:Frame for tableView
         let frame = self.view.frame
         tableView = UITableView(frame: frame)
-        //Adding tableView to the View
+        
+       
+        
+        // NOTE:Adding tableView to the View
         self.view.addSubview(tableView!)
         self.tableView?.rowHeight = UITableViewAutomaticDimension
         self.tableView?.estimatedRowHeight = 200
         
-        
-        tableView?.delegate = self
-        tableView?.dataSource = self
+        // NOTE: - Registering the cell programmatically
+        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+       
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         
-        dataSource.delegate = self
-        dataSource.requestData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +71,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     func didRecieveDataUpdate(parsedData: Country) {
         
         dataArray = parsedData
-        tableView?.reloadData()
+        
     }
     
     func didFailDataUpdateWithError(error: Error) {
@@ -67,9 +91,11 @@ class MainViewController: UIViewController,DataModelDelegate {
     */
 
 }
+// MARK: - Table View Delegate
 extension MainViewController: UITableViewDelegate {
     
 }
+// MARK: - Table View Data Source
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +109,9 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        
+      
+           return (dataArray?.rows?.count)!
     }
 
     
