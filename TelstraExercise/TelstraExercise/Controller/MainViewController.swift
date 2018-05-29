@@ -10,9 +10,11 @@ import UIKit
 
 class MainViewController: UIViewController,DataModelDelegate {
     
-    private let dataSource = TableViewDataModel()
+    // class stuff here
     
-    //NOTE : tableview closure
+    private let dataSource = NetworkController()
+    
+    // MARK: tableview closure
     let tableView:UITableView = {
         let tv = UITableView()
         // NOTE: - Registering the cell programmatically
@@ -22,11 +24,9 @@ class MainViewController: UIViewController,DataModelDelegate {
         return tv
     }()
     
-    //NOTE : Refreshcontroller closure
+    // MARK: Refreshcontroller closure
      lazy var refreshControl: UIRefreshControl = {
-     
      let refreshControl = UIRefreshControl()
-     
      refreshControl.addTarget(self, action:
      #selector(MainViewController.handleRefresh(_:)),
      for: UIControlEvents.valueChanged)
@@ -36,8 +36,8 @@ class MainViewController: UIViewController,DataModelDelegate {
      return refreshControl
      }()
     
+    // MARK: Listener
     var dataArray:Country?{
-        //NOTE: Manually listening for reloading the tabelView
         didSet{
             DispatchQueue.main.async {
                 self.navigationItem.title = (self.dataArray?.title)!
@@ -57,7 +57,16 @@ class MainViewController: UIViewController,DataModelDelegate {
         dataSource.requestData()
         tableViewSetup()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
+    }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    // MARK: Tableview setup
     func tableViewSetup(){
         
         // NOTE:Adding tableView to the View
@@ -97,17 +106,10 @@ class MainViewController: UIViewController,DataModelDelegate {
         
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
-    }
+ 
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    //MARK: Delegate methods
+    //MARK: Protocol methods
     func didRecieveDataUpdate(parsedData: Country) {
 
         dataArray = parsedData
@@ -118,6 +120,8 @@ class MainViewController: UIViewController,DataModelDelegate {
         print("error: \(error.localizedDescription)")
         
     }
+    
+    // MARK: Refresh method
      @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
      
      dataSource.requestData()
