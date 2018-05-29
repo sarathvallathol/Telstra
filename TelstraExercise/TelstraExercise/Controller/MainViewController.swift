@@ -10,10 +10,13 @@ import UIKit
 
 class MainViewController: UIViewController,DataModelDelegate {
     
+    
     let tableView:UITableView = {
-        
         let tv = UITableView()
+        // NOTE: - Registering the cell programmatically
+        tv.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         tv.allowsSelection = false
+        tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
  
@@ -31,10 +34,9 @@ class MainViewController: UIViewController,DataModelDelegate {
     }()*/
     
     var dataArray:Country?{
-        //NOTE: Manually listening relaoding the tabelView
+        //NOTE: Manually listening for reloading the tabelView
         didSet{
                 DispatchQueue.main.async {
-                
                 self.navigationItem.title = (self.dataArray?.title)!
                 self.tableView.delegate = self
                 self.tableView.dataSource = self
@@ -60,29 +62,20 @@ class MainViewController: UIViewController,DataModelDelegate {
         // NOTE:Adding tableView to the View
         self.view.addSubview(tableView)
         
-        let screenSize: CGRect = UIScreen.main.bounds
-        
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
+    
         //self.tableView.addSubview(self.refreshControl)
         
-        tableView.frame = CGRect(x:0, y:0, width:screenWidth, height:screenHeight);
         
+        tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        // NOTE:Frame for tableView
-        //let frame = self.view.frame
-      //  tableView.frame.size.width = self.view.frame.size.width
-      //  tableView.frame.size.height = self.view.frame.size.height
-        
-    
-        
+     
        
         self.tableView.rowHeight = UITableViewAutomaticDimension
        // self.tableView?.estimatedRowHeight = 200
         
-        // NOTE: - Registering the cell programmatically
-        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
        
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -98,8 +91,22 @@ class MainViewController: UIViewController,DataModelDelegate {
     //MARK: Delegate methods
     func didRecieveDataUpdate(parsedData: Country) {
      
+        var array = [Rows]()
         
+        for row in parsedData.rows {
+            
+            array.append(row)
+        }
+        
+       // let midpoint = array.count / 2
+    
         dataArray = parsedData
+        
+     //  let   firstHalf = array[..<midpoint]
+    //   let   secondHalf = array[midpoint...]
+
+
+        
         
     }
     
