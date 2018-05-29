@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD24D3D320BD56F6004A5156 /* CustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24D3D220BD56F6004A5156 /* CustomClass.swift */; };
 		FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */; };
 		FD4340B420BC121A00CED8B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B320BC121A00CED8B7 /* Assets.xcassets */; };
 		FD4340B720BC121A00CED8B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD24D3D220BD56F6004A5156 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
 		FD4340A920BC121A00CED8B7 /* TelstraExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelstraExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD4340B320BC121A00CED8B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +62,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD24D3CE20BD5468004A5156 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD79F96520BC497000C1D5C5 /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD24D3CF20BD547B004A5156 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD24D3D020BD548B004A5156 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FD24D3D120BD56BE004A5156 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FD24D3D220BD56F6004A5156 /* CustomClass.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FD4340A020BC121A00CED8B7 = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +116,11 @@
 			isa = PBXGroup;
 			children = (
 				FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */,
-				FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */,
-				FD79F96520BC497000C1D5C5 /* TableViewCell.swift */,
+				FD24D3D020BD548B004A5156 /* Controller */,
+				FD24D3CF20BD547B004A5156 /* Model */,
+				FD24D3CE20BD5468004A5156 /* View */,
+				FD24D3D120BD56BE004A5156 /* Extension */,
 				FD4340D020BC1D8100CED8B7 /* TableViewDataModel.swift */,
-				FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */,
 				FD4340B320BC121A00CED8B7 /* Assets.xcassets */,
 				FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */,
 				FD4340B820BC121A00CED8B7 /* Info.plist */,
@@ -207,6 +242,7 @@
 				FD79F96620BC497000C1D5C5 /* TableViewCell.swift in Sources */,
 				FD4340D320BC1DC200CED8B7 /* TableViewDataModelItem.swift in Sources */,
 				FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */,
+				FD24D3D320BD56F6004A5156 /* CustomClass.swift in Sources */,
 				FD4340D120BC1D8100CED8B7 /* TableViewDataModel.swift in Sources */,
 				FD4340CF20BC1CD300CED8B7 /* MainViewController.swift in Sources */,
 			);

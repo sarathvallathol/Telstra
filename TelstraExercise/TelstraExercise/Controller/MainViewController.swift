@@ -51,7 +51,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         // NOTE:Adding tableView to the View
         self.view.addSubview(tableView!)
         self.tableView?.rowHeight = UITableViewAutomaticDimension
-      //  self.tableView?.estimatedRowHeight = 200
+       // self.tableView?.estimatedRowHeight = 200
         
         // NOTE: - Registering the cell programmatically
         self.tableView?.register(TableViewCell.self, forCellReuseIdentifier: "cell")

@@ -17,15 +17,15 @@ class TableViewCell: UITableViewCell {
     
     var messageView:UITextView = {
         var textView = UITextView()
-        textView.backgroundColor = .red
+        //textView.backgroundColor = .red
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isScrollEnabled = false
         textView.isUserInteractionEnabled = false
         return textView
     }()
   
-    var mainImageView: UIImageView = {
-        var imageView = UIImageView()
+    var mainImageView: CustomImageView = {
+        var imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -52,23 +52,27 @@ class TableViewCell: UITableViewCell {
         self.addSubview(mainImageView)
         self.addSubview(titleView)
         self.addSubview(messageView)
-        
+      
+        // NOTE: Image view constraint
         mainImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         mainImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive  = true
         mainImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         mainImageView.widthAnchor.constraint(equalToConstant: 100).isActive  = true
        // mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
+        // NOTE: Title view constraint
         titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
         titleView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         titleView.bottomAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
         titleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         
+        // NOTE: Description view constraint
         messageView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
         messageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         messageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -79,6 +83,7 @@ class TableViewCell: UITableViewCell {
         if let description = detailedDescription {
             messageView.text = description
         }
+        //NOTE: Calling image asynchronously
         setUpImage()
         
     }
@@ -93,32 +98,4 @@ class TableViewCell: UITableViewCell {
 
  }
 // NOTE: 
-let imageCache = NSCache<AnyObject, AnyObject>()
-extension UIImageView {
-    
-    func loadImageFromUrlString(urlString:String){
-        
-        image = nil
-        let url = NSURL(string:urlString)
-        let request = URLRequest(url:url! as URL)
-        
-        // NOTE: image caching if allready cached use that
-        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
-            
-            self.image = imageFromCache
-            return
-        }
-        URLSession.shared.dataTask(with:request) { data, response, error in
-            guard let data = data else {return}
 
-            DispatchQueue.main.async() {
-            let imageToCache = UIImage(data: data)
-                if let cacheImage = imageToCache {
-                    imageCache.setObject(cacheImage, forKey: urlString as AnyObject)
-                }
-            self.image = imageToCache
-            }
-        }.resume()
- 
-    }
-}
