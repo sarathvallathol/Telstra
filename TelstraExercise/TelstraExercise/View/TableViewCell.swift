@@ -54,23 +54,91 @@ class TableViewCell: UITableViewCell {
         self.addSubview(messageView)
       
         // NOTE: Image view constraint
-        mainImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
-        mainImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive  = true
-        mainImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        mainImageView.widthAnchor.constraint(equalToConstant: 100).isActive  = true
+        if #available(iOS 9.0, *) {
+            if #available(iOS 11.0, *) {
+                mainImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 11.0, *) {
+            mainImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive  = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            if #available(iOS 11.0, *) {
+                mainImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            mainImageView.widthAnchor.constraint(equalToConstant: 100).isActive  = true
+        } else {
+            // Fallback on earlier versions
+        }
        // mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         // NOTE: Title view constraint
-        titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
-        titleView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
-        titleView.bottomAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
-        titleView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        if #available(iOS 9.0, *) {
+            titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 11.0, *) {
+            titleView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            titleView.bottomAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            if #available(iOS 11.0, *) {
+                titleView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         
         // NOTE: Description view constraint
-        messageView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
-        messageView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
-        messageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
+        if #available(iOS 9.0, *) {
+            messageView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            if #available(iOS 11.0, *) {
+                messageView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            if #available(iOS 11.0, *) {
+                messageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     

@@ -23,7 +23,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     }()
     
     //NOTE : Refreshcontroller closure
-    /* lazy var refreshControl: UIRefreshControl = {
+     lazy var refreshControl: UIRefreshControl = {
      
      let refreshControl = UIRefreshControl()
      
@@ -34,7 +34,7 @@ class MainViewController: UIViewController,DataModelDelegate {
      refreshControl.tintColor = UIColor.red
      
      return refreshControl
-     }()*/
+     }()
     
     var dataArray:Country?{
         //NOTE: Manually listening for reloading the tabelView
@@ -63,17 +63,37 @@ class MainViewController: UIViewController,DataModelDelegate {
         // NOTE:Adding tableView to the View
         self.view.addSubview(tableView)
         //NOTE : Constraints for table view
-        tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        if #available(iOS 9.0, *) {
+            tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 9.0, *) {
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        };if #available(iOS 9.0, *) {
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
         
         //NOTE : Dimension for tableview cell
         self.tableView.rowHeight = UITableViewAutomaticDimension
         // self.tableView?.estimatedRowHeight = 200
         
         //NOTE : Refreshcontroller
-        //self.tableView.addSubview(self.refreshControl)
+        self.tableView.addSubview(self.refreshControl)
         
         
     }
@@ -89,35 +109,21 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     //MARK: Delegate methods
     func didRecieveDataUpdate(parsedData: Country) {
-        
-        var array = [Rows]()
-        
-        for row in parsedData.rows {
-            
-            array.append(row)
-        }
-        
-        // let midpoint = array.count / 2
-        
+
         dataArray = parsedData
-        
-        //  let   firstHalf = array[..<midpoint]
-        //   let   secondHalf = array[midpoint...]
-        
-        
-        
-        
+  
     }
     
     func didFailDataUpdateWithError(error: Error) {
         print("error: \(error.localizedDescription)")
         
     }
-    /* @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
      
+     dataSource.requestData()
      refreshControl.endRefreshing()
      
-     }*/
+     }
     
     
     
