@@ -10,7 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController,DataModelDelegate {
     
+    private let dataSource = TableViewDataModel()
     
+    //NOTE : tableview closure
     let tableView:UITableView = {
         let tv = UITableView()
         // NOTE: - Registering the cell programmatically
@@ -19,24 +21,25 @@ class MainViewController: UIViewController,DataModelDelegate {
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
- 
-   /* lazy var refreshControl: UIRefreshControl = {
-        
-        let refreshControl = UIRefreshControl()
-        
-        refreshControl.addTarget(self, action:
-            #selector(MainViewController.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
-        
-        refreshControl.tintColor = UIColor.red
-        
-        return refreshControl
-    }()*/
+    
+    //NOTE : Refreshcontroller closure
+    /* lazy var refreshControl: UIRefreshControl = {
+     
+     let refreshControl = UIRefreshControl()
+     
+     refreshControl.addTarget(self, action:
+     #selector(MainViewController.handleRefresh(_:)),
+     for: UIControlEvents.valueChanged)
+     
+     refreshControl.tintColor = UIColor.red
+     
+     return refreshControl
+     }()*/
     
     var dataArray:Country?{
         //NOTE: Manually listening for reloading the tabelView
         didSet{
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
                 self.navigationItem.title = (self.dataArray?.title)!
                 self.tableView.delegate = self
                 self.tableView.dataSource = self
@@ -45,9 +48,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         }
     }
     
-    private let dataSource = TableViewDataModel()
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,28 +62,26 @@ class MainViewController: UIViewController,DataModelDelegate {
         
         // NOTE:Adding tableView to the View
         self.view.addSubview(tableView)
-        
-    
-        //self.tableView.addSubview(self.refreshControl)
-        
-        
+        //NOTE : Constraints for table view
         tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-     
-       
+        //NOTE : Dimension for tableview cell
         self.tableView.rowHeight = UITableViewAutomaticDimension
-       // self.tableView?.estimatedRowHeight = 200
+        // self.tableView?.estimatedRowHeight = 200
         
-       
+        //NOTE : Refreshcontroller
+        //self.tableView.addSubview(self.refreshControl)
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -90,7 +89,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     //MARK: Delegate methods
     func didRecieveDataUpdate(parsedData: Country) {
-     
+        
         var array = [Rows]()
         
         for row in parsedData.rows {
@@ -98,14 +97,14 @@ class MainViewController: UIViewController,DataModelDelegate {
             array.append(row)
         }
         
-       // let midpoint = array.count / 2
-    
+        // let midpoint = array.count / 2
+        
         dataArray = parsedData
         
-     //  let   firstHalf = array[..<midpoint]
-    //   let   secondHalf = array[midpoint...]
-
-
+        //  let   firstHalf = array[..<midpoint]
+        //   let   secondHalf = array[midpoint...]
+        
+        
         
         
     }
@@ -114,23 +113,14 @@ class MainViewController: UIViewController,DataModelDelegate {
         print("error: \(error.localizedDescription)")
         
     }
-   /* @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    /* @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+     
+     refreshControl.endRefreshing()
+     
+     }*/
     
-            refreshControl.endRefreshing()
     
-    }*/
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 // MARK: - Table View Delegate
 extension MainViewController: UITableViewDelegate {
@@ -140,20 +130,20 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.title = dataArray?.rows[indexPath.row].title
         cell.imageUrl = dataArray?.rows[indexPath.row].imageHref
         cell.detailedDescription = dataArray?.rows[indexPath.row].description
         cell.layoutSubviews()
         return cell
-  }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-      
+        
         return (dataArray?.rows.count)!
     }
-
+    
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         
     }
