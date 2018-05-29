@@ -51,7 +51,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         // NOTE:Adding tableView to the View
         self.view.addSubview(tableView!)
         self.tableView?.rowHeight = UITableViewAutomaticDimension
-        self.tableView?.estimatedRowHeight = 200
+      //  self.tableView?.estimatedRowHeight = 200
         
         // NOTE: - Registering the cell programmatically
         self.tableView?.register(TableViewCell.self, forCellReuseIdentifier: "cell")
@@ -105,8 +105,8 @@ extension MainViewController: UITableViewDataSource {
         cell.title = dataArray?.rows[indexPath.row].title
         cell.imageUrl = dataArray?.rows[indexPath.row].imageHref
         cell.detailedDescription = dataArray?.rows[indexPath.row].description
-            
-            return cell
+        cell.layoutSubviews()
+        return cell
   }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

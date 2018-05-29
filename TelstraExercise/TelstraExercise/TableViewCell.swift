@@ -15,11 +15,9 @@ class TableViewCell: UITableViewCell {
     var mainImage: UIImage?
     var imageUrl:String?
     
-    
-    
     var messageView:UITextView = {
-        
         var textView = UITextView()
+        textView.backgroundColor = .red
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isScrollEnabled = false
         textView.isUserInteractionEnabled = false
@@ -33,7 +31,6 @@ class TableViewCell: UITableViewCell {
     }()
     
     var titleView : UILabel = {
-      
         var title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
@@ -60,13 +57,17 @@ class TableViewCell: UITableViewCell {
         mainImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive  = true
         mainImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         mainImageView.widthAnchor.constraint(equalToConstant: 100).isActive  = true
-        mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+       // mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
         titleView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        titleView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        titleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        titleView.bottomAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
+        titleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         
+        messageView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+        messageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        messageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
     }
     
     override func layoutSubviews() {
@@ -75,7 +76,9 @@ class TableViewCell: UITableViewCell {
         if let title = title{
             titleView.text = title
         }
-        
+        if let description = detailedDescription {
+            messageView.text = description
+        }
         setUpImage()
         
     }
