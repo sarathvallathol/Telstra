@@ -54,7 +54,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         self.tableView?.estimatedRowHeight = 200
         
         // NOTE: - Registering the cell programmatically
-        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView?.register(TableViewCell.self, forCellReuseIdentifier: "cell")
        
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -102,16 +102,16 @@ extension MainViewController: UITableViewDataSource {
         
         let cell = self.tableView?.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
             
-            cell.title = dataArray?.rows![indexPath.row].subTitle
-            //cell.mainImage = dataArray?.rows![indexPath.row].imageUrl
-            cell.detailedDescription = dataArray?.rows![indexPath.row].description
+        cell.title = dataArray?.rows[indexPath.row].title
+        cell.imageUrl = dataArray?.rows[indexPath.row].imageHref
+        cell.detailedDescription = dataArray?.rows[indexPath.row].description
             
             return cell
   }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
       
-           return (dataArray?.rows?.count)!
+        return (dataArray?.rows.count)!
     }
 
     

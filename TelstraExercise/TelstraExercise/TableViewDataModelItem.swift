@@ -10,17 +10,18 @@ import Foundation
 
 
 struct Country: Decodable {
-    let title : String?
-    let rows: [Rows]?
+    let title : String
+    let rows: [Rows]
 }
 struct Rows:Decodable {
-    let subTitle:String?
-    let description:String?
-    let imageUrl:String?
     
-    enum codingKeys: String,CodingKey {
+    let title:String?
+    let description:String?
+    let imageHref:String?
+    
+ /* private enum codingKeys: String,CodingKey {
         case subTitle    = "title"
         case description = "description"
         case imageUrl    = "imageHref"
-    }
+    }*/
 }

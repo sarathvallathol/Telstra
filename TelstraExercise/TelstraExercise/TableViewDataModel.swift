@@ -15,20 +15,6 @@ protocol DataModelDelegate: class {
 }
 
 
-/*struct Country: Decodable {
-    let title : String
-    let rows: [Rows]?
-   
-}
-struct Rows:Decodable {
-    
-    let title:String?
-    let description:String?
-    let imageHref:String?
-    
-    
-}
-*/
 class TableViewDataModel: NSObject {
 
     let defaultSession = URLSession(configuration: .default)

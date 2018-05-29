@@ -13,6 +13,9 @@ class TableViewCell: UITableViewCell {
     var title:String?
     var detailedDescription:String?
     var mainImage: UIImage?
+    var imageUrl:String?
+    
+    
     
     var messageView:UITextView = {
         
@@ -22,9 +25,8 @@ class TableViewCell: UITableViewCell {
         textView.isUserInteractionEnabled = false
         return textView
     }()
-    
+  
     var mainImageView: UIImageView = {
-        
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -37,6 +39,11 @@ class TableViewCell: UITableViewCell {
         return title
     }()
     
+    func setUpImage(){
+        if let imageUrl = imageUrl {
+            mainImageView.loadImageFromUrlString(urlString: imageUrl)
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -68,9 +75,9 @@ class TableViewCell: UITableViewCell {
         if let title = title{
             titleView.text = title
         }
-        if let image = mainImage {
-            mainImageView.image = image
-        }
+        
+        setUpImage()
+        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -81,4 +88,32 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+ }
+// NOTE: 
+let imageCache = NSCache<AnyObject, AnyObject>()
+extension UIImageView {
+    
+    func loadImageFromUrlString(urlString:String){
+        
+        image = nil
+        let url = NSURL(string:urlString)
+        let request = URLRequest(url:url! as URL)
+        
+        // NOTE: image caching if allready cached use that
+        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+            
+            self.image = imageFromCache
+            return
+        }
+        URLSession.shared.dataTask(with:request) { data, response, error in
+            guard let data = data else {return}
+
+            DispatchQueue.main.async() {
+            let imageToCache = UIImage(data: data)
+                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+            self.image = imageToCache
+            }
+        }.resume()
+ 
+    }
 }
