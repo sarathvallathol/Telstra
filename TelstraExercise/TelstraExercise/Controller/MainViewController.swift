@@ -10,51 +10,79 @@ import UIKit
 
 class MainViewController: UIViewController,DataModelDelegate {
     
- 
-    var dataArray:Country?{
+    let tableView:UITableView = {
         
+        let tv = UITableView()
+        tv.allowsSelection = false
+        return tv
+    }()
+ 
+   /* lazy var refreshControl: UIRefreshControl = {
+        
+        let refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action:
+            #selector(MainViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()*/
+    
+    var dataArray:Country?{
+        //NOTE: Manually listening relaoding the tabelView
         didSet{
-           
-            
-            DispatchQueue.main.async {
+                DispatchQueue.main.async {
                 
                 self.navigationItem.title = (self.dataArray?.title)!
-                self.tableView?.delegate = self
-                self.tableView?.dataSource = self
-                self.tableView?.reloadData()
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.reloadData()
             }
         }
     }
+    
     private let dataSource = TableViewDataModel()
 
-    var tableView:UITableView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         dataSource.delegate = self
         dataSource.requestData()
-        
         tableViewSetup()
-       
     }
     
     func tableViewSetup(){
         
+        // NOTE:Adding tableView to the View
+        self.view.addSubview(tableView)
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        //self.tableView.addSubview(self.refreshControl)
+        
+        tableView.frame = CGRect(x:0, y:0, width:screenWidth, height:screenHeight);
+        
         
         // NOTE:Frame for tableView
-        let frame = self.view.frame
-        tableView = UITableView(frame: frame)
+        //let frame = self.view.frame
+      //  tableView.frame.size.width = self.view.frame.size.width
+      //  tableView.frame.size.height = self.view.frame.size.height
+        
+    
         
        
-        
-        // NOTE:Adding tableView to the View
-        self.view.addSubview(tableView!)
-        self.tableView?.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableViewAutomaticDimension
        // self.tableView?.estimatedRowHeight = 200
         
         // NOTE: - Registering the cell programmatically
-        self.tableView?.register(TableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
        
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -69,6 +97,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     //MARK: Delegate methods
     func didRecieveDataUpdate(parsedData: Country) {
+     
         
         dataArray = parsedData
         
@@ -78,6 +107,11 @@ class MainViewController: UIViewController,DataModelDelegate {
         print("error: \(error.localizedDescription)")
         
     }
+   /* @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    
+            refreshControl.endRefreshing()
+    
+    }*/
     
 
     /*
@@ -99,9 +133,8 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = self.tableView?.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-            
+       
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.title = dataArray?.rows[indexPath.row].title
         cell.imageUrl = dataArray?.rows[indexPath.row].imageHref
         cell.detailedDescription = dataArray?.rows[indexPath.row].description
@@ -114,6 +147,9 @@ extension MainViewController: UITableViewDataSource {
         return (dataArray?.rows.count)!
     }
 
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+    }
     
     
 }

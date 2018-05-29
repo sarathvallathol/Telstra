@@ -54,22 +54,22 @@ class TableViewCell: UITableViewCell {
         self.addSubview(messageView)
       
         // NOTE: Image view constraint
-        mainImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        mainImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive  = true
-        mainImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        mainImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
+        mainImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive  = true
+        mainImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
         mainImageView.widthAnchor.constraint(equalToConstant: 100).isActive  = true
        // mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         // NOTE: Title view constraint
         titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
-        titleView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        titleView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
         titleView.bottomAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
-        titleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        titleView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         
         // NOTE: Description view constraint
         messageView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
-        messageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        messageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        messageView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
+        messageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
         messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
     }
     
