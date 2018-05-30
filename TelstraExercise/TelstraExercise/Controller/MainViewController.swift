@@ -130,12 +130,6 @@ extension MainViewController: UITableViewDataSource {
         return dataArray!.rows.count
         
     }
-    
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-    }
-    
-    
 }
 
 

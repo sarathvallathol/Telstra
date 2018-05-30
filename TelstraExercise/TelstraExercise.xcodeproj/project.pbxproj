@@ -10,11 +10,11 @@
 		D759A3412BF5DBEB94196808 /* Pods_TelstraExerciseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F48AE72EF6039CF657AE55 /* Pods_TelstraExerciseTests.framework */; };
 		F0A2D4E8FC821C8680CAA069 /* Pods_TelstraExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33973182E1533521B4A5F4B6 /* Pods_TelstraExercise.framework */; };
 		FD0FA7B520BEDF950019259A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = FD0FA7B420BEDF950019259A /* placeholder.png */; };
+		FD0FA7B820BEFDAD0019259A /* MainViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0FA7B720BEFDAD0019259A /* MainViewControllerTest.swift */; };
 		FD24D3D320BD56F6004A5156 /* CustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24D3D220BD56F6004A5156 /* CustomClass.swift */; };
 		FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */; };
 		FD4340B420BC121A00CED8B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B320BC121A00CED8B7 /* Assets.xcassets */; };
 		FD4340B720BC121A00CED8B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */; };
-		FD4340C220BC121A00CED8B7 /* TelstraExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340C120BC121A00CED8B7 /* TelstraExerciseTests.swift */; };
 		FD4340CF20BC1CD300CED8B7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */; };
 		FD4340D120BC1D8100CED8B7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340D020BC1D8100CED8B7 /* NetworkManager.swift */; };
 		FD4340D320BC1DC200CED8B7 /* TableViewDataModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340D220BC1DC200CED8B7 /* TableViewDataModelItem.swift */; };
@@ -39,6 +39,7 @@
 		6412591EE44BF51CFF4A10C0 /* Pods-TelstraExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelstraExercise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelstraExercise/Pods-TelstraExercise.debug.xcconfig"; sourceTree = "<group>"; };
 		BB292DA8B26563B248421852 /* Pods-TelstraExerciseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelstraExerciseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelstraExerciseTests/Pods-TelstraExerciseTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD0FA7B420BEDF950019259A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		FD0FA7B720BEFDAD0019259A /* MainViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTest.swift; sourceTree = "<group>"; };
 		FD1C064F20BEC9E700E88911 /* TelstraExercise-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TelstraExercise-Bridging-Header.h"; sourceTree = "<group>"; };
 		FD24D3D220BD56F6004A5156 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
 		FD4340A920BC121A00CED8B7 /* TelstraExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelstraExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,7 +48,6 @@
 		FD4340B620BC121A00CED8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD4340B820BC121A00CED8B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD4340BD20BC121A00CED8B7 /* TelstraExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelstraExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD4340C120BC121A00CED8B7 /* TelstraExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelstraExerciseTests.swift; sourceTree = "<group>"; };
 		FD4340C320BC121A00CED8B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD4340CE20BC1CD300CED8B7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FD4340D020BC1D8100CED8B7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		FD4340C020BC121A00CED8B7 /* TelstraExerciseTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD4340C120BC121A00CED8B7 /* TelstraExerciseTests.swift */,
+				FD0FA7B720BEFDAD0019259A /* MainViewControllerTest.swift */,
 				FD4340C320BC121A00CED8B7 /* Info.plist */,
 			);
 			path = TelstraExerciseTests;
@@ -240,6 +240,7 @@
 					};
 					FD4340BC20BC121A00CED8B7 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = FD4340A820BC121A00CED8B7;
 					};
@@ -359,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4340C220BC121A00CED8B7 /* TelstraExerciseTests.swift in Sources */,
+				FD0FA7B820BEFDAD0019259A /* MainViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,12 +538,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72UCH54KZS;
 				INFOPLIST_FILE = TelstraExerciseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sarath.TelstraExerciseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TelstraExercise.app/TelstraExercise";
@@ -555,6 +558,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72UCH54KZS;
 				INFOPLIST_FILE = TelstraExerciseTests/Info.plist;
