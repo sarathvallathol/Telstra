@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D759A3412BF5DBEB94196808 /* Pods_TelstraExerciseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F48AE72EF6039CF657AE55 /* Pods_TelstraExerciseTests.framework */; };
+		F0A2D4E8FC821C8680CAA069 /* Pods_TelstraExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33973182E1533521B4A5F4B6 /* Pods_TelstraExercise.framework */; };
+		FD0FA7B520BEDF950019259A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = FD0FA7B420BEDF950019259A /* placeholder.png */; };
 		FD24D3D320BD56F6004A5156 /* CustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24D3D220BD56F6004A5156 /* CustomClass.swift */; };
 		FD4340AD20BC121A00CED8B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */; };
 		FD4340B420BC121A00CED8B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4340B320BC121A00CED8B7 /* Assets.xcassets */; };
@@ -29,6 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18438A575F676303D4041EB8 /* Pods-TelstraExercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelstraExercise.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelstraExercise/Pods-TelstraExercise.release.xcconfig"; sourceTree = "<group>"; };
+		19F48AE72EF6039CF657AE55 /* Pods_TelstraExerciseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelstraExerciseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		230E7B7FF2B56C35359E085A /* Pods-TelstraExerciseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelstraExerciseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelstraExerciseTests/Pods-TelstraExerciseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		33973182E1533521B4A5F4B6 /* Pods_TelstraExercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TelstraExercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6412591EE44BF51CFF4A10C0 /* Pods-TelstraExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelstraExercise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TelstraExercise/Pods-TelstraExercise.debug.xcconfig"; sourceTree = "<group>"; };
+		BB292DA8B26563B248421852 /* Pods-TelstraExerciseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TelstraExerciseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TelstraExerciseTests/Pods-TelstraExerciseTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD0FA7B420BEDF950019259A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		FD1C064F20BEC9E700E88911 /* TelstraExercise-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TelstraExercise-Bridging-Header.h"; sourceTree = "<group>"; };
 		FD24D3D220BD56F6004A5156 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
 		FD4340A920BC121A00CED8B7 /* TelstraExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelstraExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A2D4E8FC821C8680CAA069 /* Pods_TelstraExercise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +68,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D759A3412BF5DBEB94196808 /* Pods_TelstraExerciseTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BC70ADC5B46AB7F6DD0A123 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6412591EE44BF51CFF4A10C0 /* Pods-TelstraExercise.debug.xcconfig */,
+				18438A575F676303D4041EB8 /* Pods-TelstraExercise.release.xcconfig */,
+				230E7B7FF2B56C35359E085A /* Pods-TelstraExerciseTests.debug.xcconfig */,
+				BB292DA8B26563B248421852 /* Pods-TelstraExerciseTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		903229F3465D540E6ED5657B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33973182E1533521B4A5F4B6 /* Pods_TelstraExercise.framework */,
+				19F48AE72EF6039CF657AE55 /* Pods_TelstraExerciseTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FD24D3CE20BD5468004A5156 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,19 +127,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		FD42868320BDAC98004716AF /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		FD4340A020BC121A00CED8B7 = {
 			isa = PBXGroup;
 			children = (
 				FD4340AB20BC121A00CED8B7 /* TelstraExercise */,
 				FD4340C020BC121A00CED8B7 /* TelstraExerciseTests */,
 				FD4340AA20BC121A00CED8B7 /* Products */,
+				3BC70ADC5B46AB7F6DD0A123 /* Pods */,
+				903229F3465D540E6ED5657B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,8 +150,8 @@
 		FD4340AB20BC121A00CED8B7 /* TelstraExercise */ = {
 			isa = PBXGroup;
 			children = (
-				FD42868320BDAC98004716AF /* New Group */,
 				FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */,
+				FD0FA7B420BEDF950019259A /* placeholder.png */,
 				FD24D3D020BD548B004A5156 /* Controller */,
 				FD24D3CF20BD547B004A5156 /* Model */,
 				FD24D3CE20BD5468004A5156 /* View */,
@@ -132,6 +160,7 @@
 				FD4340B320BC121A00CED8B7 /* Assets.xcassets */,
 				FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */,
 				FD4340B820BC121A00CED8B7 /* Info.plist */,
+				FD1C064F20BEC9E700E88911 /* TelstraExercise-Bridging-Header.h */,
 			);
 			path = TelstraExercise;
 			sourceTree = "<group>";
@@ -152,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD4340C620BC121A00CED8B7 /* Build configuration list for PBXNativeTarget "TelstraExercise" */;
 			buildPhases = (
+				A9602F6692FCDAF139FA473E /* [CP] Check Pods Manifest.lock */,
 				FD4340A520BC121A00CED8B7 /* Sources */,
 				FD4340A620BC121A00CED8B7 /* Frameworks */,
 				FD4340A720BC121A00CED8B7 /* Resources */,
+				A3D3B50B2D9EDA24C77CD584 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD4340C920BC121A00CED8B7 /* Build configuration list for PBXNativeTarget "TelstraExerciseTests" */;
 			buildPhases = (
+				67DA17E4096E69A8EA2D9F3D /* [CP] Check Pods Manifest.lock */,
 				FD4340B920BC121A00CED8B7 /* Sources */,
 				FD4340BA20BC121A00CED8B7 /* Frameworks */,
 				FD4340BB20BC121A00CED8B7 /* Resources */,
@@ -195,6 +227,7 @@
 				TargetAttributes = {
 					FD4340A820BC121A00CED8B7 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					FD4340BC20BC121A00CED8B7 = {
@@ -229,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD4340B720BC121A00CED8B7 /* LaunchScreen.storyboard in Resources */,
+				FD0FA7B520BEDF950019259A /* placeholder.png in Resources */,
 				FD4340B420BC121A00CED8B7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +275,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67DA17E4096E69A8EA2D9F3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TelstraExerciseTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3D3B50B2D9EDA24C77CD584 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TelstraExercise/Pods-TelstraExercise-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TelstraExercise/Pods-TelstraExercise-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9602F6692FCDAF139FA473E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TelstraExercise-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FD4340A520BC121A00CED8B7 /* Sources */ = {
@@ -395,8 +486,10 @@
 		};
 		FD4340C720BC121A00CED8B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6412591EE44BF51CFF4A10C0 /* Pods-TelstraExercise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72UCH54KZS;
 				INFOPLIST_FILE = TelstraExercise/Info.plist;
@@ -404,6 +497,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sarath.TelstraExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TelstraExercise/TelstraExercise-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -411,8 +506,10 @@
 		};
 		FD4340C820BC121A00CED8B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18438A575F676303D4041EB8 /* Pods-TelstraExercise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72UCH54KZS;
 				INFOPLIST_FILE = TelstraExercise/Info.plist;
@@ -420,6 +517,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sarath.TelstraExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TelstraExercise/TelstraExercise-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -427,6 +525,7 @@
 		};
 		FD4340CA20BC121A00CED8B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 230E7B7FF2B56C35359E085A /* Pods-TelstraExerciseTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -444,6 +543,7 @@
 		};
 		FD4340CB20BC121A00CED8B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB292DA8B26563B248421852 /* Pods-TelstraExerciseTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
