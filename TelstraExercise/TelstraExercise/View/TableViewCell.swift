@@ -83,7 +83,10 @@ class TableViewCell: UITableViewCell {
             messageView.text = description
         }
         if let imageUrl = imageUrl {
-            // Custom method for image loading - not using
+            
+            // To use custom method for image loading
+            /* STEP 1: uncomment below code
+               STEP 2: change uimageview to subclass of CustomImageView class.*/
             //mainImageView.loadImageFromUrlString(urlString: imageUrl)
             
             //SDWeb library
