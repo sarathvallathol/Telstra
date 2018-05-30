@@ -12,7 +12,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     // class stuff here
     
-    private let dataSource = NetworkController()
+    private let dataSource = NetworkManager()
     
     // MARK: tableview closure
     let tableView:UITableView = {

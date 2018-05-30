@@ -15,7 +15,7 @@ protocol DataModelDelegate: class {
 }
 
 
-class NetworkController: NSObject {
+class NetworkManager: NSObject {
 
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?

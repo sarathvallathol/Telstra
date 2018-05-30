@@ -28,7 +28,6 @@ class CustomImageView: UIImageView {
         }
         URLSession.shared.dataTask(with:request) { data, response, error in
             guard let data = data else {return}
-            
             DispatchQueue.main.async() {
                 let imageToCache = UIImage(data: data)
                 if imageToCache != nil{
