@@ -21,6 +21,9 @@ class TableViewCell: UITableViewCell {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.numberOfLines = 0
         textView.lineBreakMode = NSLineBreakMode.byWordWrapping
+        textView.font = UIFont.systemFont(ofSize: 12)
+          //  UIFont(name: "Avenir-Book", size: 12)
+        textView.textColor = UIColor.lightGray
         return textView
     }()
     
@@ -61,8 +64,10 @@ class TableViewCell: UITableViewCell {
         mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
         mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        mainImageView.widthAnchor.constraint(equalToConstant: 50).isActive  = true
-        mainImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       // mainImageView.widthAnchor.constraint(equalToConstant: 50).isActive  = true
+        mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        
        /* mainImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
         
         mainImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive  = true
@@ -74,9 +79,9 @@ class TableViewCell: UITableViewCell {
         
 
         titleView.leadingAnchor.constraint(equalTo: mainImageView.leadingAnchor).isActive = true
-        titleView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        //titleView.trailingAnchor.constraint(equalTo: mainImageView.trailingAnchor).isActive = true
         titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+        titleView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor).isActive = true
+        titleView.trailingAnchor.constraint(equalTo: mainImageView.trailingAnchor).isActive = true
 
       /*  // NOTE: Title view constraint
         titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
@@ -95,7 +100,6 @@ class TableViewCell: UITableViewCell {
         messageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 15).isActive = true
         self.contentView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 15).isActive = true*/
         
-        messageView.translatesAutoresizingMaskIntoConstraints = false
         messageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         messageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
         messageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true

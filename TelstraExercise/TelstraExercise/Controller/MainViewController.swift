@@ -21,6 +21,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         tv.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         tv.allowsSelection = false
         tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         return tv
     }()
     
@@ -81,7 +82,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         }
         
         //NOTE : Dimension for tableview cell
-        tableView.estimatedRowHeight = 85.0
+        tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
 
