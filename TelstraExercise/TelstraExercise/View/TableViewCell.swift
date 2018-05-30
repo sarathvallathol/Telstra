@@ -25,7 +25,7 @@ class TableViewCell: UITableViewCell {
         textView.textColor = UIColor.lightGray
         return textView
     }()
-    
+    // If yor using custom image loading func then change-to CustomImageView
     var mainImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,10 @@ class TableViewCell: UITableViewCell {
             messageView.text = description
         }
         if let imageUrl = imageUrl {
-            //SDWeb library 
+            // Custom method for image loading - not using
+            //mainImageView.loadImageFromUrlString(urlString: imageUrl)
+            
+            //SDWeb library
             mainImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder.png"))
             
         }
