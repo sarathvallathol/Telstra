@@ -11,7 +11,6 @@ import UIKit
 class MainViewController: UIViewController,DataModelDelegate {
     
     // class stuff here
-    
     private let dataSource = NetworkManager()
     
     // MARK: tableview closure
@@ -58,7 +57,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        dataSource.requestData()
+        dataSource.downloadJson()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,9 +67,9 @@ class MainViewController: UIViewController,DataModelDelegate {
     // MARK: Tableview setup
     func tableViewSetup(){
         
-        // NOTE:Adding tableView to the View
+        // Adding tableView to the View
         self.view.addSubview(tableView)
-        //NOTE : Constraints for table view
+        // Constraints for table view
         if #available(iOS 9.0, *) {
             tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
@@ -86,7 +85,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         
 
-        //NOTE : Refreshcontroller
+        // Refreshcontroller
         self.tableView.addSubview(self.refreshControl)
     }
  
@@ -104,7 +103,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     // MARK: Refresh method
      @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-     dataSource.requestData()
+     dataSource.downloadJson()
      refreshControl.endRefreshing()
      }
  
@@ -119,10 +118,12 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.title = dataArray?.rows[indexPath.row].title
-        cell.imageUrl =  dataArray?.rows[indexPath.row].imageHref
-        cell.detailedDescription = dataArray?.rows[indexPath.row].description
-        cell.layoutSubviews()
+
+         cell.title = dataArray?.rows[indexPath.row].title
+         cell.imageUrl = dataArray?.rows[indexPath.row].imageHref
+         cell.detailedDescription = dataArray?.rows[indexPath.row].description
+         cell.layoutSubviews()
+
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

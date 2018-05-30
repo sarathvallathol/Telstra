@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let imageCache = NSCache<NSString, UIImage>()
+let imageCache = NSCache<NSString, AnyObject>()
 class CustomImageView: UIImageView {
     
     var imgeUrlString:String?
@@ -20,18 +20,23 @@ class CustomImageView: UIImageView {
         let url = NSURL(string:urlString)
         let request = URLRequest(url:url! as URL)
         
-        // NOTE: image caching if allready cached use that
-        image = nil
-        if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
+        self.image = nil
+        // Check for cached image
+        if let imageFromCache = imageCache.object(forKey: urlString as NSString) as? UIImage{
             self.image = imageFromCache
             return
         }
+        // If not, download image from url
         URLSession.shared.dataTask(with:request) { data, response, error in
+            if error != nil {
+                print(error!)
+                return
+            }
             guard let data = data else {return}
             DispatchQueue.main.async() {
                 let imageToCache = UIImage(data: data)
                 if imageToCache != nil{
-                    //NOTE: Avoiding image overlapping
+                    // NOTE: Avoiding image overlapping
                     if self.imgeUrlString == urlString {
                         self.image = imageToCache
                     }

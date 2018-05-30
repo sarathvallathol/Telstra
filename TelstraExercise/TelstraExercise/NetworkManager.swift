@@ -24,7 +24,7 @@ class NetworkManager: NSObject {
     weak var delegate: DataModelDelegate?
 
     // MARK: API call
-    func requestData() {
+    func downloadJson() {
         
         //Setting up the url
         guard let url = URL(string:"https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") else {return}

@@ -17,12 +17,10 @@ class TableViewCell: UITableViewCell {
     
     var messageView:UILabel = {
         var textView = UILabel()
-        //textView.backgroundColor = .red
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.numberOfLines = 0
         textView.lineBreakMode = NSLineBreakMode.byWordWrapping
         textView.font = UIFont.systemFont(ofSize: 12)
-          //  UIFont(name: "Avenir-Book", size: 12)
         textView.textColor = UIColor.lightGray
         return textView
     }()
@@ -42,7 +40,6 @@ class TableViewCell: UITableViewCell {
     func setUpImage(){
         if let imageUrl = imageUrl {
             mainImageView.loadImageFromUrlString(urlString: imageUrl)
-            // print("URL",imageUrl)
         }
     }
     override func awakeFromNib() {
@@ -57,21 +54,19 @@ class TableViewCell: UITableViewCell {
         contentView.addSubview(titleView)
         contentView.addSubview(messageView)
         
-        // NOTE: Image view constraint
-        
+        // Image view constraint
         let marginGuide = contentView.layoutMarginsGuide
         
         mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
         mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+       // mainImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         mainImageView.bottomAnchor.constraint(equalTo: titleView.topAnchor).isActive = true
-
-        
+        // Title view constraint
         titleView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         titleView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor,constant:10).isActive = true
         titleView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        
+        // Description view constraint
         messageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         messageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
         messageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
@@ -103,7 +98,7 @@ class TableViewCell: UITableViewCell {
         
 
     }
-    
+  
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -114,8 +109,13 @@ class TableViewCell: UITableViewCell {
         if let description = detailedDescription {
             messageView.text = description
         }
-        //NOTE: Calling image asynchronously
-        setUpImage()
+        if let imageUrl = imageUrl {
+            mainImageView.loadImageFromUrlString(urlString: imageUrl)
+        }
+     
+    
+        // Calling image asynchronously
+       // setUpImage()
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -128,5 +128,4 @@ class TableViewCell: UITableViewCell {
     }
     
 }
-// NOTE: 
 
