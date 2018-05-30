@@ -57,20 +57,25 @@ class TableViewCell: UITableViewCell {
         contentView.addSubview(messageView)
         
         // Image view constraint
-        let marginGuide = contentView.layoutMarginsGuide
-        mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
-        mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        mainImageView.bottomAnchor.constraint(equalTo: titleView.topAnchor).isActive = true
-        // Title view constraint
-        titleView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
-        titleView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor,constant:10).isActive = true
-        titleView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        // Description view constraint
-        messageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
-        messageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-        messageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor,constant:5).isActive = true
+        if #available(iOS 9.0, *) {
+            let marginGuide = contentView.layoutMarginsGuide
+            mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+            mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+            mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+            mainImageView.bottomAnchor.constraint(equalTo: titleView.topAnchor).isActive = true
+            // Title view constraint
+            titleView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+            titleView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor,constant:10).isActive = true
+            titleView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+            // Description view constraint
+            messageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+            messageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+            messageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+            messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor,constant:5).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
+        
         
     }
     // Displaying data to the UI components
