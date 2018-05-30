@@ -21,8 +21,6 @@ class CustomImageView: UIImageView {
         let request = URLRequest(url:url! as URL)
         
         // NOTE: image caching if allready cached use that
-        
-        
         image = nil
         if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
             self.image = imageFromCache

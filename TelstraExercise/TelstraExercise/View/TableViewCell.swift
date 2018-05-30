@@ -9,21 +9,21 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
     var title:String?
     var detailedDescription:String?
     var mainImage: UIImage?
     var imageUrl:String?
     
-    var messageView:UITextView = {
-        var textView = UITextView()
+    var messageView:UILabel = {
+        var textView = UILabel()
         //textView.backgroundColor = .red
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isScrollEnabled = false
-        textView.isUserInteractionEnabled = false
+        textView.numberOfLines = 0
+        textView.lineBreakMode = NSLineBreakMode.byWordWrapping
         return textView
     }()
-  
+    
     var mainImageView: CustomImageView = {
         var imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,106 +39,67 @@ class TableViewCell: UITableViewCell {
     func setUpImage(){
         if let imageUrl = imageUrl {
             mainImageView.loadImageFromUrlString(urlString: imageUrl)
+            // print("URL",imageUrl)
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-   
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.addSubview(mainImageView)
-        self.addSubview(titleView)
-        self.addSubview(messageView)
-      
+        contentView.addSubview(mainImageView)
+        contentView.addSubview(titleView)
+        contentView.addSubview(messageView)
+        
         // NOTE: Image view constraint
-        if #available(iOS 9.0, *) {
-            if #available(iOS 11.0, *) {
-                mainImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
-            } else {
-                // Fallback on earlier versions
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 11.0, *) {
-            mainImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive  = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            if #available(iOS 11.0, *) {
-                mainImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
-            } else {
-                // Fallback on earlier versions
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            mainImageView.widthAnchor.constraint(equalToConstant: 100).isActive  = true
-        } else {
-            // Fallback on earlier versions
-        }
-       // mainImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        // NOTE: Title view constraint
-        if #available(iOS 9.0, *) {
-            titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 11.0, *) {
-            titleView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            titleView.bottomAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            if #available(iOS 11.0, *) {
-                titleView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-            } else {
-                // Fallback on earlier versions
-            }
-        } else {
-            // Fallback on earlier versions
-        }
+        let marginGuide = contentView.layoutMarginsGuide
         
-        // NOTE: Description view constraint
-        if #available(iOS 9.0, *) {
-            messageView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            if #available(iOS 11.0, *) {
-                messageView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
-            } else {
-                // Fallback on earlier versions
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            if #available(iOS 11.0, *) {
-                messageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
-            } else {
-                // Fallback on earlier versions
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
-        } else {
-            // Fallback on earlier versions
-        }
+        mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        mainImageView.widthAnchor.constraint(equalToConstant: 50).isActive  = true
+        mainImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       /* mainImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
+        
+        mainImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive  = true
+        mainImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        mainImageView.widthAnchor.constraint(equalToConstant: 50).isActive  = true
+        mainImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+ */
+        
+        
+
+        titleView.leadingAnchor.constraint(equalTo: mainImageView.leadingAnchor).isActive = true
+        titleView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        //titleView.trailingAnchor.constraint(equalTo: mainImageView.trailingAnchor).isActive = true
+        titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+
+      /*  // NOTE: Title view constraint
+        titleView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+        titleView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
+        titleView.bottomAnchor.constraint(equalTo: messageView.topAnchor,constant:10).isActive = true
+        titleView.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true*/
+        
+       
+       /* // NOTE: Description view constraint
+        messageView.leftAnchor.constraint(equalTo: mainImageView.rightAnchor).isActive = true
+       /* messageView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
+        messageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor,constant:10).isActive = true*/
+        
+        messageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15).isActive = true
+        messageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 15).isActive = true
+        self.contentView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 15).isActive = true*/
+        
+        messageView.translatesAutoresizingMaskIntoConstraints = false
+        messageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        messageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        messageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
     }
     
     
@@ -160,10 +121,10 @@ class TableViewCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
- }
+    
+}
 // NOTE: 
 

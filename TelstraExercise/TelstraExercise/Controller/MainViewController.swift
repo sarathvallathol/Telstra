@@ -52,14 +52,12 @@ class MainViewController: UIViewController,DataModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         dataSource.delegate = self
-        dataSource.requestData()
         tableViewSetup()
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        
+        dataSource.requestData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,41 +72,23 @@ class MainViewController: UIViewController,DataModelDelegate {
         //NOTE : Constraints for table view
         if #available(iOS 9.0, *) {
             tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
             tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        } else {
-            // Fallback on earlier versions
-        };if #available(iOS 9.0, *) {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         } else {
             // Fallback on earlier versions
         }
         
         //NOTE : Dimension for tableview cell
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        // self.tableView?.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 85.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         
+
         //NOTE : Refreshcontroller
         self.tableView.addSubview(self.refreshControl)
-        
-        
     }
  
-    
-    
     //MARK: Protocol methods
     func didRecieveDataUpdate(parsedData: Country) {
 
@@ -123,14 +103,10 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     // MARK: Refresh method
      @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-     
      dataSource.requestData()
      refreshControl.endRefreshing()
-     
      }
-    
-    
-    
+ 
 }
 // MARK: - Table View Delegate
 extension MainViewController: UITableViewDelegate {
@@ -143,15 +119,15 @@ extension MainViewController: UITableViewDataSource {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.title = dataArray?.rows[indexPath.row].title
-        cell.imageUrl = dataArray?.rows[indexPath.row].imageHref
+        cell.imageUrl =  dataArray?.rows[indexPath.row].imageHref
         cell.detailedDescription = dataArray?.rows[indexPath.row].description
         cell.layoutSubviews()
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        return dataArray!.rows.count
         
-        return (dataArray?.rows.count)!
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
