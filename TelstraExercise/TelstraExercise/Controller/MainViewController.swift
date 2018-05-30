@@ -56,7 +56,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         tableViewSetup()
     }
     override func viewDidAppear(_ animated: Bool) {
-        
+        // Api call
         dataSource.downloadJson()
     }
     
