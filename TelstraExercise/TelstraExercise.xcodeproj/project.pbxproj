@@ -95,12 +95,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FD0FA7B620BEE7150019259A /* Network */ = {
+		FD0FA7B620BEE7150019259A /* NetworkManger */ = {
 			isa = PBXGroup;
 			children = (
 				FD4340D020BC1D8100CED8B7 /* NetworkManager.swift */,
 			);
-			path = Network;
+			path = NetworkManger;
 			sourceTree = "<group>";
 		};
 		FD24D3CE20BD5468004A5156 /* View */ = {
@@ -159,12 +159,12 @@
 			isa = PBXGroup;
 			children = (
 				FD4340AC20BC121A00CED8B7 /* AppDelegate.swift */,
-				FD0FA7B420BEDF950019259A /* placeholder.png */,
 				FD24D3D020BD548B004A5156 /* Controller */,
 				FD24D3CF20BD547B004A5156 /* Model */,
 				FD24D3CE20BD5468004A5156 /* View */,
-				FD0FA7B620BEE7150019259A /* Network */,
+				FD0FA7B620BEE7150019259A /* NetworkManger */,
 				FD24D3D120BD56BE004A5156 /* Extension */,
+				FD0FA7B420BEDF950019259A /* placeholder.png */,
 				FD4340B320BC121A00CED8B7 /* Assets.xcassets */,
 				FD4340B520BC121A00CED8B7 /* LaunchScreen.storyboard */,
 				FD4340B820BC121A00CED8B7 /* Info.plist */,

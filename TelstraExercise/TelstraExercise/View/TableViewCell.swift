@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     var mainImage: UIImage?
     var imageUrl:String?
     
+    // MARK: UI component setup
     var messageView:UILabel = {
         var textView = UILabel()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +38,7 @@ class TableViewCell: UITableViewCell {
         return title
     }()
     
+    // Resting image to nil
     override func prepareForReuse()  {
         mainImageView.image = nil
     }
@@ -55,7 +57,6 @@ class TableViewCell: UITableViewCell {
         
         // Image view constraint
         let marginGuide = contentView.layoutMarginsGuide
-        
         mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
@@ -71,7 +72,7 @@ class TableViewCell: UITableViewCell {
         messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor,constant:5).isActive = true
         
     }
-    
+    // Displaying data to the UI components
     override func layoutSubviews() {
         super.layoutSubviews()
         
