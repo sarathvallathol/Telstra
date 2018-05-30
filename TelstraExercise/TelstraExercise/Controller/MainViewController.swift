@@ -116,15 +116,12 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        // Table view cell 
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-
-         cell.titleView.text = dataArray?.rows[indexPath.row].title
-        if let urlString = (dataArray?.rows[indexPath.row].imageHref){
-            cell.mainImageView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "placeholder.png"))
-        }
-         cell.messageView.text = dataArray?.rows[indexPath.row].description
-        // cell.layoutSubviews()
+        cell.title = dataArray?.rows[indexPath.row].title
+        cell.imageUrl = (dataArray?.rows[indexPath.row].imageHref)
+        cell.detailedDescription = dataArray?.rows[indexPath.row].description
+        cell.layoutSubviews()
 
         return cell
     }

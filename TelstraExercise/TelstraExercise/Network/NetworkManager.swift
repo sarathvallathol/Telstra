@@ -17,6 +17,7 @@ protocol DataModelDelegate: class {
 
 class NetworkManager: NSObject {
 
+    final let url = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     
@@ -26,8 +27,8 @@ class NetworkManager: NSObject {
     // MARK: API call
     func downloadJson() {
         
-        //Setting up the url
-        guard let url = URL(string:"https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") else {return}
+        //Setting upthe url
+        guard let url = URL(string:url) else {return}
         
         //NSURLSession 
         dataTask = defaultSession.dataTask(with: url) { data, response, error in

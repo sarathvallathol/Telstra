@@ -38,13 +38,9 @@ class TableViewCell: UITableViewCell {
     }()
     
     override func prepareForReuse()  {
-    mainImageView.image = nil
+        mainImageView.image = nil
     }
-    func setUpImage(){
-        if let imageUrl = imageUrl {
-           // mainImageView.loadImageFromUrlString(urlString: imageUrl)
-        }
-    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -60,7 +56,6 @@ class TableViewCell: UITableViewCell {
         // Image view constraint
         let marginGuide = contentView.layoutMarginsGuide
         
-        
         mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
@@ -75,13 +70,9 @@ class TableViewCell: UITableViewCell {
         messageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor,constant:5).isActive = true
         
-      
-        
-
     }
-  
     
-  /*  override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         
         if let title = title{
@@ -91,14 +82,12 @@ class TableViewCell: UITableViewCell {
             messageView.text = description
         }
         if let imageUrl = imageUrl {
-          //  mainImageView.loadImageFromUrlString(urlString: imageUrl)
+            //SDWeb library 
+            mainImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder.png"))
+            
         }
-     
-    
-        // Calling image asynchronously
-       // setUpImage()
         
-    }*/
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
