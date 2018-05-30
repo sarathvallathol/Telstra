@@ -26,6 +26,7 @@ class TableViewCell: UITableViewCell {
         return textView
     }()
     // If yor using custom image loading func then change-to CustomImageView
+    //STEP 2: change uimageview to subclass of CustomImageView class.
     var mainImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,9 +85,9 @@ class TableViewCell: UITableViewCell {
         }
         if let imageUrl = imageUrl {
             
-            // To use custom method for image loading
-            /* STEP 1: uncomment below code
-               STEP 2: change uimageview to subclass of CustomImageView class.*/
+            // To use custom method for image loading - 2 Steps
+            
+            // STEP 1: uncomment below code & comment line no:93
             //mainImageView.loadImageFromUrlString(urlString: imageUrl)
             
             //SDWeb library
