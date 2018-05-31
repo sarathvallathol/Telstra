@@ -71,11 +71,12 @@ class MainViewController: UIViewController,DataModelDelegate {
         self.view.addSubview(tableView)
         // Constraints for table view
         if #available(iOS 9.0, *) {
-            tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-            tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive  = true
-            tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            [
+            tableView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)].forEach{ $0.isActive = true}
         } else {
             // Fallback on earlier versions
         }
