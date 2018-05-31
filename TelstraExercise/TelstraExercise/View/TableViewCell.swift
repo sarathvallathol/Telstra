@@ -63,19 +63,18 @@ class TableViewCell: UITableViewCell {
             mainImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor),
             mainImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor),
             mainImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor),
-            mainImageView.bottomAnchor.constraint(equalTo: titleView.topAnchor)
-            ].forEach{ $0.isActive = true}
+            mainImageView.bottomAnchor.constraint(equalTo: titleView.topAnchor)].forEach{ $0.isActive = true }
             // Title view constraint
             [
             titleView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor),
             titleView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor,constant:10),
-            titleView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor)].forEach{ $0.isActive = true}
+            titleView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor)].forEach{ $0.isActive = true }
             // Description view constraint
             [
             messageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor),
             messageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor),
             messageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor),
-            messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor,constant:5)].forEach{ $0.isActive = true}
+            messageView.topAnchor.constraint(equalTo: titleView.bottomAnchor,constant:5)].forEach{ $0.isActive = true }
         } else {
             // Fallback on earlier versions
         }

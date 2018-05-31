@@ -76,7 +76,7 @@ class MainViewController: UIViewController,DataModelDelegate {
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)].forEach{ $0.isActive = true}
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)].forEach{ $0.isActive = true }
         } else {
             // Fallback on earlier versions
         }
