@@ -72,10 +72,9 @@ class MainViewController: UIViewController,DataModelDelegate {
         // Constraints for table view
         if #available(iOS 9.0, *) {
             [
-            tableView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)].forEach{ $0.isActive = true }
         } else {
             // Fallback on earlier versions
