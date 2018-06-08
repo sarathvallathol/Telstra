@@ -24,16 +24,12 @@ class MainViewController: UIViewController,DataModelDelegate {
     }()
     
     // MARK: Refreshcontroller closure
-     lazy var refreshControl: UIRefreshControl = {
-     let refreshControl = UIRefreshControl()
-     refreshControl.addTarget(self, action:
-     #selector(MainViewController.handleRefresh(_:)),
-     for: UIControlEvents.valueChanged)
-     
-     refreshControl.tintColor = UIColor.red
-     
-     return refreshControl
-     }()
+    let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:#selector(MainViewController.handleRefresh(_:)),for:UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        return refreshControl
+    }()
     
     // MARK: Listener
     var dataArray:Country?{
@@ -44,7 +40,6 @@ class MainViewController: UIViewController,DataModelDelegate {
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +73,10 @@ class MainViewController: UIViewController,DataModelDelegate {
         // Constraints for table view
         if #available(iOS 9.0, *) {
             [
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)].forEach{ $0.isActive = true }
+                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                tableView.topAnchor.constraint(equalTo: view.topAnchor),
+                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)].forEach{ $0.isActive = true }
         } else {
             // Fallback on earlier versions
         }
@@ -89,35 +84,28 @@ class MainViewController: UIViewController,DataModelDelegate {
         //NOTE : Dimension for tableview cell
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        
         // Refreshcontroller
         self.tableView.addSubview(self.refreshControl)
     }
- 
+    
     //MARK: Protocol methods
     func didRecieveDataUpdate(parsedData: Country) {
-
         dataArray = parsedData
-  
     }
     
     func didFailDataUpdateWithError(error: Error) {
         print("error: \(error.localizedDescription)")
-        
     }
     
     // MARK: Refresh method
-     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-     dataSource.downloadJson()
-     refreshControl.endRefreshing()
-     }
- 
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        dataSource.downloadJson()
+        refreshControl.endRefreshing()
+    }
 }
 // MARK: - Table View Delegate
-extension MainViewController: UITableViewDelegate {
-    
- 
-}
+extension MainViewController: UITableViewDelegate {}
 // MARK: - Table View Data Source
 extension MainViewController: UITableViewDataSource {
     
@@ -128,7 +116,7 @@ extension MainViewController: UITableViewDataSource {
         cell.imageUrl = (dataArray?.rows[indexPath.row].imageHref)
         cell.detailedDescription = dataArray?.rows[indexPath.row].description
         cell.layoutSubviews()
-
+        
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
