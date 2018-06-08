@@ -43,7 +43,6 @@ class CustomImageView: UIImageView {
                     }
                     imageCache.setObject(imageToCache!, forKey: urlString as NSString)
                 }
-         
             }
             }.resume()
         
