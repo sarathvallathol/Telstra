@@ -12,7 +12,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     // class stuff here
     private let dataSource = NetworkManager()
-    let cellId = "cell" //Cell dequeue identifer
+    let cellIdentifier = "cell" //Cell dequeue identifer
     
     // MARK: tableview closure
     let tableView:UITableView = {
@@ -50,7 +50,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         super.viewDidLoad()
         
         // NOTE: - Registering the cell
-        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: cellId)
+        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         if #available(iOS 11.0, *) {
@@ -123,7 +123,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cell 
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! TableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
         cell.title = dataArray?.rows[indexPath.row].title
         cell.imageUrl = (dataArray?.rows[indexPath.row].imageHref)
         cell.detailedDescription = dataArray?.rows[indexPath.row].description
@@ -132,7 +132,6 @@ extension MainViewController: UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         let numberOfRows = dataArray == nil ? 0 : dataArray!.rows.count
         return numberOfRows
     }
