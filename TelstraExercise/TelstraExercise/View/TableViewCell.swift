@@ -16,7 +16,7 @@ class TableViewCell: UITableViewCell {
     var imageUrl:String?
     
     // MARK: UI component setup
-    var messageView:UILabel = {
+    let messageView:UILabel = {
         var textView = UILabel()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.numberOfLines = 0
@@ -27,19 +27,19 @@ class TableViewCell: UITableViewCell {
     }()
     // If yor using custom image loading func then change-to CustomImageView
     //STEP 2: change uimageview to subclass of CustomImageView class.
-    var mainImageView: UIImageView = {
+    let mainImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    var titleView : UILabel = {
+    let titleView : UILabel = {
         var title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
     
-    // Resting image to nil
+    // Re-setting image to nil
     override func prepareForReuse()  {
         mainImageView.image = nil
     }
@@ -51,7 +51,6 @@ class TableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         contentView.addSubview(mainImageView)
         contentView.addSubview(titleView)
         contentView.addSubview(messageView)
@@ -78,8 +77,6 @@ class TableViewCell: UITableViewCell {
         } else {
             // Fallback on earlier versions
         }
-        
-        
     }
     // Displaying data to the UI components
     override func layoutSubviews() {
@@ -94,15 +91,11 @@ class TableViewCell: UITableViewCell {
         if let imageUrl = imageUrl {
             
             // To use custom method for image loading - 2 Steps
-            
             // STEP 1: uncomment below code & comment line no:93
             //mainImageView.loadImageFromUrlString(urlString: imageUrl)
-            
             //SDWeb library
             mainImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder.png"))
-            
         }
-        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
