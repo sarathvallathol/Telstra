@@ -49,7 +49,7 @@ class MainViewController: UIViewController,DataModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // NOTE: - Registering the cell 
+        // NOTE: - Registering the cell
         self.tableView.register(TableViewCell.self, forCellReuseIdentifier: cellId)
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -89,7 +89,6 @@ class MainViewController: UIViewController,DataModelDelegate {
         //NOTE : Dimension for tableview cell
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
 
         // Refreshcontroller
         self.tableView.addSubview(self.refreshControl)
@@ -117,6 +116,7 @@ class MainViewController: UIViewController,DataModelDelegate {
 // MARK: - Table View Delegate
 extension MainViewController: UITableViewDelegate {
     
+ 
 }
 // MARK: - Table View Data Source
 extension MainViewController: UITableViewDataSource {
@@ -133,11 +133,8 @@ extension MainViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if dataArray != nil {
-        return dataArray!.rows.count
-        }else{
-            return 0
-        }
+        let numberOfRows = dataArray == nil ? 0 : dataArray!.rows.count
+        return numberOfRows
     }
 }
 

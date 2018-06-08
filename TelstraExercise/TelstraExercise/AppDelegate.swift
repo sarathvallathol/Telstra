@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainViewController = MainViewController() as UIViewController
         //Adding navigation controler 
         let navigationController = UINavigationController(rootViewController: mainViewController)
-        navigationController.navigationBar.isTranslucent = false
+        //navigationController.navigationBar.isTranslucent = false
         //
         window?.rootViewController = navigationController
         //Present the window
