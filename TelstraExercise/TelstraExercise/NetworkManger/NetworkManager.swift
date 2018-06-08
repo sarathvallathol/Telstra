@@ -52,10 +52,5 @@ class NetworkManager: NSObject {
     }
         self.dataTask?.resume()
 }
-    // MARK: delegate method
-    func updateResponse(response:AnyObject){
-        
-        
-    }
-
+   
 }
