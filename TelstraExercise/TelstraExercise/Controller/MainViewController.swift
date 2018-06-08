@@ -41,8 +41,7 @@ class MainViewController: UIViewController,DataModelDelegate {
         didSet{
             DispatchQueue.main.async {
                 self.navigationItem.title = (self.dataArray?.title)!
-                self.tableView.delegate = self
-                self.tableView.dataSource = self
+              
                 self.tableView.reloadData()
             }
         }
@@ -52,6 +51,8 @@ class MainViewController: UIViewController,DataModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         dataSource.delegate = self
         tableViewSetup()
     }
@@ -127,8 +128,11 @@ extension MainViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if dataArray != nil {
         return dataArray!.rows.count
-        
+        }else{
+            return 0
+        }
     }
 }
 

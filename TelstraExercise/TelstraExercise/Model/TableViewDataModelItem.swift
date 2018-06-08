@@ -19,7 +19,7 @@ struct Rows:Decodable {
     let description:String?
     let imageHref:String?
     
- /* private enum codingKeys: String,CodingKey {
+   /*enum CodingKeys: String, CodingKey {
         case subTitle    = "title"
         case description = "description"
         case imageUrl    = "imageHref"
