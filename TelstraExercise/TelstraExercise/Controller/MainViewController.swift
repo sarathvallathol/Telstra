@@ -12,12 +12,11 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     // class stuff here
     private let dataSource = NetworkManager()
+    let cellId = "cell" //Cell dequeue identifer
     
     // MARK: tableview closure
     let tableView:UITableView = {
         let tv = UITableView()
-        // NOTE: - Registering the cell programmatically
-        tv.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         tv.allowsSelection = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -41,7 +40,6 @@ class MainViewController: UIViewController,DataModelDelegate {
         didSet{
             DispatchQueue.main.async {
                 self.navigationItem.title = (self.dataArray?.title)!
-              
                 self.tableView.reloadData()
             }
         }
@@ -50,9 +48,16 @@ class MainViewController: UIViewController,DataModelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // NOTE: - Registering the cell 
+        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: cellId)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
         dataSource.delegate = self
         tableViewSetup()
     }
@@ -118,7 +123,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cell 
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! TableViewCell
         cell.title = dataArray?.rows[indexPath.row].title
         cell.imageUrl = (dataArray?.rows[indexPath.row].imageHref)
         cell.detailedDescription = dataArray?.rows[indexPath.row].description
